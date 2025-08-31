@@ -1,0 +1,8 @@
+# passwordless-auth-app/requirements.txt
+streamlit==1.32.0
+scikit-learn
+pandas
+numpy
+webauthn
+pydantic<2
+streamlit-drawable-canvas==0.9.3
