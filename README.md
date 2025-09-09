@@ -1,4 +1,4 @@
-# Adaptive Behavioral Authentication System
+# Passwordless Behavioral Authentication System
 
 This project is a web application, built with Streamlit, that demonstrates a modern, multi-layered, passwordless authentication system. It goes beyond simple passwords by verifying a user's identity through a combination of **fingerprint biometrics** and their unique, **personalized behavioral profiles**.
 
