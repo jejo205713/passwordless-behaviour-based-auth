@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="content-box text-center">
+        <div class="fingerprint-icon">
+            <!-- SVG Fingerprint Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" 
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 12c-2 0-4.5 1-4.5 3.5V17h9v-1.5C16.5 13 14 12 12 12z"/>
+                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"/>
+                <path d="M12 12a3 3 0 1 0 0-6 3 3 0 1 0 0 6z"/>
+            </svg>
+        </div>
+        
+        <h2>{{ title }}</h2>
+        <p>{{ instruction }}</p>
+        
+        <!-- Button for WebAuthn -->
+        <button id="webauthn-button" class="button-primary">
+            Activate Fingerprint Scan
+        </button>
+
+        <div id="status-message" class="status-message"></div>
+    </div>
+
+    <!-- WebAuthn JavaScript -->
+    <script src="{{ url_for('static', filename='js/webauthn.js') }}"></script>
+    <script>
+        // Convert Flask options dict to valid JS
+        const webauthnOptions = {{ options | tojson | safe }};
+        
+        // Ensure URL is properly escaped as a string
+        const formPostUrl = "{{ form_action_url | safe }}";
+
+        // --- THIS IS THE CHANGE ---
+        // We safely get the failure URL from the server.
+        // During registration, `failure_redirect_url` will not exist in the context,
+        // so `tojson` will correctly render this as `null`.
+        const failureRedirectUrl = {{ failure_redirect_url | tojson | safe }};
+
+        // Run WebAuthn flow
+        if (typeof initiateWebAuthn === "function") {
+            // Pass the new variable as the third argument to our JavaScript function.
+            initiateWebAuthn(webauthnOptions, formPostUrl, failureRedirectUrl);
+        } else {
+            console.error("initiateWebAuthn function is not defined in webauthn.js");
+        }
+    </script>
+{% endblock %}

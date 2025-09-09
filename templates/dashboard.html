@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Your Dashboard{% endblock %}
+
+{% block content %}
+    <div class="content-box dashboard-container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <h2 class="dashboard-welcome">Welcome back, <span class="user-email">{{ session.get('login_email', 'User') }}!</span></h2>
+            <p class="subtitle">Here is your account overview.</p>
+        </div>
+
+        <!-- Account Summary Cards -->
+        <div class="account-summary">
+            <div class="summary-card">
+                <h4>Checking Account</h4>
+                <p class="account-number">... 1234</p>
+                <p class="account-balance">₹4,41,230.50</p>
+            </div>
+            <div class="summary-card">
+                <h4>Savings Account</h4>
+                <p class="account-number">... 5678</p>
+                <p class="account-balance">₹22,65,780.00</p>
+            </div>
+            <div class="summary-card">
+                <h4>Total Balance</h4>
+                <p class="account-number">All Accounts</p>
+                <p class="account-balance total">₹27,07,010.50</p>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <a href="#" class="button-secondary">Transfer Funds</a>
+            <a href="#" class="button-secondary">Pay Bills</a>
+            <a href="#" class="button-secondary">Deposit Check</a>
+            <a href="#" class="button-secondary">View Statements</a>
+        </div>
+
+        <!-- Recent Transactions Table -->
+        <div class="transactions-section">
+            <h3>Recent Transactions</h3>
+            <table class="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th class="text-right">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sep 02, 2025</td>
+                        <td>Direct Deposit - ACME Corp</td>
+                        <td>Deposit</td>
+                        <td class="credit text-right">+₹1,50,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Sep 01, 2025</td>
+                        <td>Grocery Store Purchase</td>
+                        <td>Debit</td>
+                        <td class="debit text-right">-₹2,345.20</td>
+                    </tr>
+                    <tr>
+                        <td>Aug 30, 2025</td>
+                        <td>Swiggy Order</td>
+                        <td>Debit</td>
+                        <td class="debit text-right">-₹499.00</td>
+                    </tr>
+                    <tr>
+                        <td>Aug 29, 2025</td>
+                        <td>Petrol Station - IOCL</td>
+                        <td>Debit</td>
+                        <td class="debit text-right">-₹2,000.00</td>
+                    </tr>
+                    <tr>
+                        <td>Aug 28, 2025</td>
+                        <td>Online Purchase - Flipkart</td>
+                        <td>Debit</td>
+                        <td class="debit text-right">-₹5,290.00</td>
+                    </tr>
+                    <tr>
+                        <td>Aug 27, 2025</td>
+                        <td>ATM Withdrawal</td>
+                        <td>Withdrawal</td>
+                        <td class="debit text-right">-₹10,000.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

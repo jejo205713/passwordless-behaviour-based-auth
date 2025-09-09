@@ -1,1 +1,124 @@
-{}
+{
+    "jejo@gmail.com": {
+        "webauthn_credential": null,
+        "click_profile": null,
+        "secret_passkey": null,
+        "typing_baseline": {
+            "samples": [],
+            "average_speed": null
+        }
+    },
+    "yashmi@gmail.com": {
+        "webauthn_credential": null,
+        "click_profile": null,
+        "secret_passkey": null,
+        "typing_baseline": {
+            "samples": [],
+            "average_speed": null
+        }
+    },
+    "m@gmail.com": {
+        "webauthn_credential": null,
+        "click_profile": null,
+        "secret_passkey": null,
+        "typing_baseline": {
+            "samples": [],
+            "average_speed": null
+        }
+    },
+    "g@gmail.com": {
+        "webauthn_credential": null,
+        "click_profile": null,
+        "secret_passkey": null,
+        "typing_baseline": {
+            "samples": [],
+            "average_speed": null
+        }
+    },
+    "v@gmail.com": {
+        "webauthn_credential": null,
+        "click_profile": null,
+        "secret_passkey": null,
+        "typing_baseline": {
+            "samples": [],
+            "average_speed": null
+        }
+    },
+    "j@gmail.com": {
+        "webauthn_credential": {
+            "id": "Na6kIi8H0d5KuL7UXx42tbGdMzT-nPTeCj48juk24Sk",
+            "rawId": "Na6kIi8H0d5KuL7UXx42tbGdMzT-nPTeCj48juk24Sk",
+            "type": "public-key",
+            "response": {
+                "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVikSZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2NFAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDWupCIvB9HeSri-1F8eNrWxnTM0_pz03go-PI7pNuEppQECAyYgASFYIJzOEgnYhbsfrcDsbeFZUY-uAFrF0IL3hFvug8BPKl45IlggQ_6HsTBbe1BxZuWb5j8eErKThEIrPKByYl2QJyPOuSI",
+                "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiZEZDSDZ0bng1ci1lSGRnVWJ5RHhOWGp3bko2R05fQ25ia1Qwdk50cGZsYndQcmZ3VmZTTDlzMzMtckZ2dzJqWmswSkp4UTJ2d2VueXJqc3V6QWFHaVEiLCJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0Ojg1MDEiLCJjcm9zc09yaWdpbiI6ZmFsc2V9"
+            }
+        },
+        "click_profile": null,
+        "secret_passkey": null,
+        "typing_baseline": {
+            "samples": [],
+            "average_speed": null
+        }
+    },
+    "b@gmail.com": {
+        "webauthn_credential": {
+            "id": "FyinY7k2XMWfePDu75Uy7DNxzI5JK989CZayOluG-hg",
+            "rawId": "FyinY7k2XMWfePDu75Uy7DNxzI5JK989CZayOluG-hg",
+            "type": "public-key",
+            "response": {
+                "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVikSZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2NFAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBcop2O5NlzFn3jw7u-VMuwzccyOSSvfPQmWsjpbhvoYpQECAyYgASFYINhjR91mkculC3omyFc7EuIjZoqm1UWbTeOD02Rhm2NyIlggAsW1Y7oJbkXoyJbYftvpKaAxSMbtbJ_vWT0eMwoakU4",
+                "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiWDNVaU9VQXQ4WENfRUtJbGU5djk1Q2xqV1Q1V2dOaWh3dmRGckM4M3I2ZWxBaU5FaTF5WHdoMWZ0eHVDRW1NbEhBVWk4dl9icHdRVmpMQzlEYTdycFEiLCJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0Ojg1MDEiLCJjcm9zc09yaWdpbiI6ZmFsc2V9"
+            }
+        },
+        "click_profile": [
+            {
+                "x": 145.5999755859375,
+                "y": 77.39999389648438
+            },
+            {
+                "x": 227.5999755859375,
+                "y": 21.399993896484375
+            },
+            {
+                "x": 275.5999755859375,
+                "y": 126.39999389648438
+            }
+        ],
+        "secret_passkey": "cloud-034",
+        "typing_baseline": {
+            "samples": [],
+            "average_speed": null
+        }
+    },
+    "kaggle@gmail.com": {
+        "webauthn_credential": {
+            "id": "_elWrTSJRXLvaqyn_tKKN8Ig1Q6wL_ZTsILdOKTwTis",
+            "rawId": "_elWrTSJRXLvaqyn_tKKN8Ig1Q6wL_ZTsILdOKTwTis",
+            "type": "public-key",
+            "response": {
+                "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVikSZYN5YgOjGh0NBcPZHZgW4_krrmihjLHmVzzuoMdl2NFAAAAAAAAAAAAAAAAAAAAAAAAAAAAIP3pVq00iUVy72qsp_7SijfCINUOsC_2U7CC3Tik8E4rpQECAyYgASFYIHx2rdx-FaQp1oWnqDLUoSCuSchPudQkMPyS9lyT2HQ5IlggyKiwIU3pckfTgSKZPMwF_5XVxerUBWVg7J2Bm8ZfIvQ",
+                "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoiVm1mWGF2dWVCd2ktMXZDWnhna05VYnA2TjJmMmswVVBUdjdaZXE1X3ZQeUxfXy0xUk1SOV9Lc2todkp6NWFWODBKZzVpLTdNNHpYOFJEVFVfWlNockEiLCJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0Ojg1MDEiLCJjcm9zc09yaWdpbiI6ZmFsc2V9"
+            }
+        },
+        "click_profile": [
+            {
+                "x": 179.20001220703125,
+                "y": 44.399993896484375
+            },
+            {
+                "x": 40.20001220703125,
+                "y": 221.39999389648438
+            },
+            {
+                "x": 323.20001220703125,
+                "y": 219.39999389648438
+            }
+        ],
+        "secret_passkey": "flare-167",
+        "typing_baseline": {
+            "samples": [],
+            "average_speed": null
+        }
+    }
+}

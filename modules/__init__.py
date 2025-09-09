@@ -1,2 +1,6 @@
-# passwordless_auth_app/modules/__init__.py
-# This file can be empty.
+# modules/__init__.py
+# This file marks the "modules" folder as a Python package.
+
+from . import user_manager
+from . import auth_service
+from . import webauthn_helpers

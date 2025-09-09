@@ -1,8 +1,13 @@
-# passwordless-auth-app/requirements.txt
-streamlit==1.32.0
-scikit-learn
-pandas
-numpy
-webauthn
+# Main web framework for the application
+Flask>=2.2.0
+
+# Server-side library for handling WebAuthn (FIDO2) for fingerprint authentication
+webauthn>=1.6.0
+
+# The webauthn library depends on Pydantic version 1.x.
+# Version 2.x has breaking changes, so it's critical to lock this to a pre-2.0 version.
 pydantic<2
-streamlit-drawable-canvas==0.9.3
+
+# (Optional but highly recommended for development)
+# Helps manage environment variables, for example, loading your SECRET_KEY from a .env file.
+python-dotenv

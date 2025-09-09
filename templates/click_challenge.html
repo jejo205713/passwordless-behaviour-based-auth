@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="content-box text-center">
+        <h2>{{ title }}</h2>
+        <p>{{ instruction }}</p>
+
+        <!-- Container for the canvas. The background image and dimensions will be set by JS -->
+        <div id="canvas-container" class="canvas-container">
+            <canvas id="click-canvas"></canvas>
+        </div>
+
+        <p>Clicks registered: <span id="click-counter">0</span> / 3</p>
+
+        <!-- This button will be enabled by JavaScript once 3 points are clicked -->
+        <button id="submit-clicks" class="button-primary" disabled>Submit Clicks</button>
+        <button id="reset-clicks" class="button-secondary">Reset</button>
+
+        <div id="error-message" class="flash-error" style="display:none;"></div>
+    </div>
+
+    <!-- Your canvas handling script -->
+    <script src="{{ url_for('static', filename='js/click_canvas.js') }}"></script>
+    <script>
+        // Flask passes the image URL and the POST URL to the JavaScript
+        const imageUrl = "{{ url_for('static', filename='img/background.png') }}";
+        const postUrl = "{{ form_action_url }}";
+
+        // Initialize the canvas
+        initializeCanvas(imageUrl, postUrl);
+    </script>
+{% endblock %}

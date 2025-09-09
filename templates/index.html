@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <div class="content-box text-center">
+        <h1>The Future of Secure Authentication</h1>
+        <p class="subtitle">Experience a seamless and secure login flow powered by your unique behavioral biometrics. No passwords needed.</p>
+        <div class="button-group">
+            <a href="{{ url_for('login') }}" class="button-primary">Login</a>
+            <a href="{{ url_for('register') }}" class="button-secondary">Create Account</a>
+        </div>
+    </div>
+{% endblock %}

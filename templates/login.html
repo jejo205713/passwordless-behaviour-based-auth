@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="content-box">
+        <h2 class="form-title">Login</h2>
+        <p>Enter your email to begin the secure login process.</p>
+        
+        <!-- Flash messages for errors -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('login') }}" method="POST">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <button type="submit" class="button-primary full-width">Continue</button>
+        </form>
+        <div class="form-footer">
+            <p>Don't have an account? <a href="{{ url_for('register') }}">Register Now</a></p>
+        </div>
+    </div>
+{% endblock %}

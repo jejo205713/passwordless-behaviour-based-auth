@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="content-box">
+    <h2 class="form-title">{{ title }}</h2>
+    <p id="instruction-text">To create a baseline of your typing rhythm, please type the following sentence exactly. You will do this 4 times.</p>
+    
+    <div class="challenge-sentence">
+        <p><em>{{ challenge_text }}</em></p>
+    </div>
+
+    <div class="form-group">
+        <label for="typing-input" id="progress-label">Attempt 1 of 4</label>
+        <input type="text" id="typing-input" class="typing-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+    
+    <p id="feedback-text" class="feedback"></p>
+
+    <!-- Hidden form that will be submitted once all attempts are complete -->
+    <form id="typing-form" action="{{ url_for('save_typing_baseline') }}" method="POST" style="display: none;">
+        <!-- Inputs will be added here dynamically by JavaScript -->
+    </form>
+</div>
+
+<style>
+    .challenge-sentence {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 6px;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border-color);
+    }
+    .typing-box {
+        transition: border-color 0.2s ease-in-out;
+    }
+    .feedback {
+        margin-top: 0.5rem;
+        height: 20px; /* Reserve space to prevent layout shift */
+        font-weight: 500;
+    }
+    .feedback.correct { color: var(--success-color); }
+    .feedback.incorrect { color: var(--error-color); }
+</style>
+
+<script>
+    const challengeText = "{{ challenge_text }}";
+    const totalAttempts = 4;
+
+    const instructionText = document.getElementById('instruction-text');
+    const progressLabel = document.getElementById('progress-label');
+    const typingInput = document.getElementById('typing-input');
+    const feedbackText = document.getElementById('feedback-text');
+    const hiddenForm = document.getElementById('typing-form');
+
+    let currentAttempt = 1;
+    let startTime = 0;
+    const durations = [];
+
+    typingInput.addEventListener('input', handleTyping);
+
+    function handleTyping() {
+        const inputText = typingInput.value;
+
+        // Start timer on the very first character of an attempt
+        if (inputText.length === 1 && startTime === 0) {
+            startTime = performance.now();
+        }
+
+        // Check for correctness in real-time
+        if (challengeText.startsWith(inputText)) {
+            typingInput.style.borderColor = 'var(--success-color)';
+            feedbackText.textContent = '';
+            feedbackText.className = 'feedback';
+        } else {
+            typingInput.style.borderColor = 'var(--error-color)';
+            feedbackText.textContent = 'Mistake detected. Please correct it.';
+            feedbackText.className = 'feedback incorrect';
+        }
+
+        // Check for successful completion of one attempt
+        if (inputText === challengeText) {
+            const endTime = performance.now();
+            const duration = (endTime - startTime) / 1000; // in seconds
+            durations.push(duration);
+            
+            feedbackText.textContent = `Correct! Duration: ${duration.toFixed(2)}s`;
+            feedbackText.className = 'feedback correct';
+
+            currentAttempt++;
+
+            if (currentAttempt > totalAttempts) {
+                // All attempts are done, finalize and submit
+                finalizeAndSubmit();
+            } else {
+                // Reset for the next attempt
+                resetForNextAttempt();
+            }
+        }
+    }
+
+    function resetForNextAttempt() {
+        typingInput.disabled = true; // Briefly disable to show feedback
+        setTimeout(() => {
+            startTime = 0;
+            typingInput.value = '';
+            typingInput.style.borderColor = 'var(--border-color)';
+            progressLabel.textContent = `Attempt ${currentAttempt} of ${totalAttempts}`;
+            feedbackText.textContent = '';
+            feedbackText.className = 'feedback';
+            typingInput.disabled = false;
+            typingInput.focus();
+        }, 1500); // Wait 1.5 seconds before clearing for next attempt
+    }
+
+    function finalizeAndSubmit() {
+        instructionText.textContent = 'Typing profile created! Please wait...';
+        typingInput.disabled = true;
+
+        // Dynamically create hidden inputs for each duration
+        durations.forEach(duration => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'durations';
+            input.value = duration.toFixed(4);
+            hiddenForm.appendChild(input);
+        });
+
+        // Submit the form to the server
+        hiddenForm.submit();
+    }
+
+    // Focus the input field on page load
+    typingInput.focus();
+</script>
+{% endblock %}

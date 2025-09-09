@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Account Recovery{% endblock %}
+
+{% block content %}
+    <div class="content-box">
+        <h2 class="form-title">Step-Up Challenge</h2>
+        <p>As a final security step, please complete the challenges below. You have {{ attempts_left }} attempt(s) remaining.</p>
+
+        <!-- Flash messages for errors -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('login_step_up') }}" method="POST" id="recovery-form">
+            <!-- Hidden input to store typing duration -->
+            <input type="hidden" name="typing_duration" id="typing_duration">
+
+            <div class="form-group">
+                <label for="typing-challenge">1. Type the following sentence exactly:</label>
+                <p><em>{{ challenge_text }}</em></p>
+                <input type="text" id="typing-challenge" name="typing_text" autocomplete="off" required>
+            </div>
+
+            <div class="form-group">
+                <label for="passkey">2. Enter your Secret Passkey</label>
+                <input type="text" id="passkey" name="passkey" placeholder="word-123" required>
+            </div>
+
+            <button type="submit" class="button-primary full-width">Verify Recovery</button>
+        </form>
+    </div>
+
+    <script>
+        const typingInput = document.getElementById('typing-challenge');
+        const durationInput = document.getElementById('typing_duration');
+        const form = document.getElementById('recovery-form');
+        const challengeText = "{{ challenge_text }}";
+        let startTime = 0;
+
+        // Start timer on first keypress
+        typingInput.addEventListener('keydown', (event) => {
+            if (startTime === 0 && event.key.length === 1) {
+                startTime = performance.now();
+            }
+        });
+
+        // Stop timer and submit when the text matches
+        form.addEventListener('submit', (event) => {
+            if (typingInput.value === challengeText) {
+                const endTime = performance.now();
+                const durationSeconds = (endTime - startTime) / 1000;
+                durationInput.value = durationSeconds.toFixed(4);
+            } else {
+                // Prevent form submission if text is wrong
+                alert("The typed text does not match the challenge sentence.");
+                event.preventDefault();
+            }
+        });
+    </script>
+{% endblock %}

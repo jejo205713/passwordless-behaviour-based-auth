@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Account Locked{% endblock %}
+
+{% block content %}
+    <div class="content-box text-center">
+        <h2 class="form-title">🚫 Account Access Denied</h2>
+        
+        <div class="status-box error">
+            <h3>Too Many Failed Attempts</h3>
+            <p>For your security, access to this account has been temporarily locked. Please try again later or contact support.</p>
+        </div>
+
+        <a href="{{ url_for('index') }}" class="button-secondary">Return to Home</a>
+    </div>
+    
+    <!-- We can reuse a class from the dashboard for the error box -->
+    <style>
+        .status-box.error {
+            border: 1px solid var(--error-color);
+            background-color: #f8d7da;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+        .status-box.error h3 {
+            color: #721c24;
+        }
+    </style>
+{% endblock %}
