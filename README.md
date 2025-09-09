@@ -43,13 +43,13 @@ The system implements an **adaptive step-up authentication** flow: a fast, conve
 ## 📸 Gallery
 
 <p align="center">
-  <img src="https://github.com/jejo205713/passwordless-behaviour-based-auth/blob/main/img/behaviour-based-auth.png" width="45%" />
-  <img src="https://github.com/jejo205713/passwordless-behaviour-based-auth/blob/main/img/biometric.png" width="45%" />
+   <img src="https://github.com/jejo205713/passwordless-behaviour-based-auth/blob/main/img/home.png" width="45%" />
+   <img src="https://github.com/jejo205713/passwordless-behaviour-based-auth/blob/main/img/biometric.png" width="45%" />
 </p>
 
 <p align="center">
-  <img src="https://github.com/jejo205713/passwordless-behaviour-based-auth/blob/main/img/home.png" width="45%" />
-  <img src="https://github.com/jejo205713/passwordless-behaviour-based-auth/blob/main/img/img%20challenge.png" width="45%" />
+   <img src="https://github.com/jejo205713/passwordless-behaviour-based-auth/blob/main/img/img%20challenge.png" width="45%" />
+   <img src="https://github.com/jejo205713/passwordless-behaviour-based-auth/blob/main/img/behaviour-based-auth.png" width="45%" />
 </p>
 
 ---
